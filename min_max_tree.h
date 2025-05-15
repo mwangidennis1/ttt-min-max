@@ -83,7 +83,10 @@ void traverse(Node *node, int depth) {
       traverse(node->children[i], depth + 1);
 }
 
-/* frees the tree using pre-order traversal */
+/* frees the tree using post-order traversal
+ * defined recursively as visit left subtree,
+ * visit right subtree then visit the root
+ */
 void free_tree(Node *node){
   if(node == NULL)
     return;
