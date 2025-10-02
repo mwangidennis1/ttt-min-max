@@ -1,15 +1,14 @@
 #include "min_max_tree.h"
 
 void play_game();
-
 int main(){
-  while(1) {
+  while(1){
    char play_again;
    play_game();
    printf("Play again? (y/n): ");
    scanf(" %c", &play_again);
    if (play_again != 'y' && play_again != 'Y') break;
-    }
+   }
   return 0;
 }
 
@@ -29,11 +28,11 @@ void play_game(){
     if(state.current_player == 0){
       printf("Computer turn\n");
       Node *root=create_node(&state);
-      build_tree(&state,root,2);
-      int move=-1;
+      build_tree(&state,root,3);
+      int move=-INFINITY;
       min_max(root,0,&move);
       apply_move(&state,move);
-      printf("Computer placed O at position %d\n", move);
+      printf("Computer placed X at position %d\n", move);
       free_tree(root);
     }else{
       int move;
