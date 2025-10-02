@@ -30,7 +30,7 @@ const int transformations[8][9]={
 
 void init_game(Gamestate *);
 void display_board(Gamestate *);
-void  apply_move(Gamestate *,u8);
+void  apply_move(Gamestate *,int8);
 u8 check_game_over(Gamestate *,char *);
 int8 count_opening_winining_lines(Gamestate *,char);
 int8 game_heuristic(Gamestate *);
@@ -55,7 +55,7 @@ void display_board(Gamestate *state){
 }
 
 
-void  apply_move(Gamestate *state,u8 move){
+void  apply_move(Gamestate *state,int8 move){
   if (move < 0 || move > 8 || state->board[move] != EMPTY)
     return;
   state->board[move] = (state->current_player == 0) ? 'X' :'O';
